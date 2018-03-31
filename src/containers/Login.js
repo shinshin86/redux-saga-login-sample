@@ -97,14 +97,11 @@ Login.propTypes = {
 }
 
 function mapStateToProps(state) {
-  const { auth } = state
-  console.log(`debug : ${auth}`)
-  const { loggedIn } = auth || {
-    loggedIn: false
-  }
+  const { token } = state.login
+  const loggedIn = token ? true : false
 
   return {
-    loggedIn
+    loggedIn,
   }
 }
 

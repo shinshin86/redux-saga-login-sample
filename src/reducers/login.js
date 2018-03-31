@@ -27,6 +27,7 @@ export default function login(
         loggedIn: true,
         loggedTime: action.loginAt,
         token: action.token,
+        username: action.username,
       }
     case FAILURE_LOGIN:
       return {

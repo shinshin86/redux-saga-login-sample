@@ -9,6 +9,7 @@ export const login = ({ username, password }) => {
   if ( username === 'testuser' &&
        password === 'password') {
     res.token = 'token'
+    res.username = 'testuser'
   } else {
     res.err = 'auth error'
   }

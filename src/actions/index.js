@@ -17,10 +17,11 @@ export function requestLogout() {
   }
 }
 
-export function successLogin(token) {
+export function successLogin(token, username) {
   return {
     type: SUCCESS_LOGIN,
     token,
+    username,
     loginAt: Date.now(),
   }
 }
