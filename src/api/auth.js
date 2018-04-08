@@ -6,8 +6,7 @@ export const login = ({ username, password }) => {
     token: '',
     err: ''
   }
-  if ( username === 'testuser' &&
-       password === 'password') {
+  if (username === 'testuser' && password === 'password') {
     res.token = 'token'
     res.username = 'testuser'
   } else {

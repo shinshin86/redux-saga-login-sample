@@ -10,20 +10,20 @@ import { requestLogin } from '../actions'
 const styles = theme => ({
   container: {
     display: 'flex',
-    flexWrap: 'wrap',
+    flexWrap: 'wrap'
   },
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 200,
-  },
+    width: 200
+  }
 })
 
 class Login extends Component {
   state = {
     auth: {
       username: '',
-      password: '',
+      password: ''
     }
   }
 
@@ -31,7 +31,7 @@ class Login extends Component {
     this.setState({
       auth: {
         username: event.target.value,
-        password: this.state.auth.password,
+        password: this.state.auth.password
       }
     })
   }
@@ -40,7 +40,7 @@ class Login extends Component {
     this.setState({
       auth: {
         username: this.state.auth.username,
-        password: event.target.value,
+        password: event.target.value
       }
     })
   }
@@ -49,7 +49,7 @@ class Login extends Component {
     super(props)
     this.handleClick = this.handleClick.bind(this)
   }
-  
+
   handleClick() {
     this.props.dispatch(requestLogin(this.state.auth))
   }
@@ -101,7 +101,7 @@ function mapStateToProps(state) {
   const loggedIn = token ? true : false
 
   return {
-    loggedIn,
+    loggedIn
   }
 }
 

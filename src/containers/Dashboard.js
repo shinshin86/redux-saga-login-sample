@@ -7,7 +7,7 @@ class Login extends Component {
   constructor(props) {
     super(props)
   }
-  
+
   render() {
     const { username } = this.props
     return (
@@ -19,13 +19,13 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired
 }
 
 function mapStateToProps(state) {
   const { username } = state.login
   return {
-    username,
+    username
   }
 }
 
