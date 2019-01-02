@@ -15,7 +15,7 @@ const {store, history} = configureStore()
 
 render(
   <Provider store={store}>
-    <ConnectedRouter history={history} >
+    <ConnectedRouter  store={store} history={history} >
       <div>
         <Switch>
           <Route exact path="/" component={App} />

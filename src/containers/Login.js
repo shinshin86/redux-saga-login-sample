@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
 import { requestData } from '../actions'
-import TextField from 'material-ui/TextField'
-import Button from 'material-ui/Button'
-import Grid from 'material-ui/Grid'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
 import { requestLogin } from '../actions'
 
 const styles = theme => ({
