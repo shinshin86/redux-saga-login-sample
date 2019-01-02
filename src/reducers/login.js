@@ -22,7 +22,6 @@ export default function login(state = initial.data, action) {
         loggedIn: false
       }
     case SUCCESS_LOGIN:
-      console.log(action)
       return {
         ...state,
         loggedIn: true,

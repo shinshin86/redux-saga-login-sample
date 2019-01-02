@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
-import { requestData } from '../actions'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
@@ -55,7 +54,6 @@ class Login extends Component {
   }
 
   render() {
-    const { loggedIn } = this.props
     return (
       <div>
         <Grid container spacing={24}>
@@ -81,7 +79,11 @@ class Login extends Component {
             />
           </Grid>
           <Grid item xs={12}>
-            <Button variant="raised" color="primary" onClick={this.handleClick}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.handleClick}
+            >
               LOGIN
             </Button>
           </Grid>
@@ -92,13 +94,12 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  loggedIn: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {
   const { token } = state.login
-  const loggedIn = token ? true : false
+  const loggedIn = !!token
 
   return {
     loggedIn

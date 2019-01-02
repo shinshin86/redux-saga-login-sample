@@ -1,8 +1,10 @@
 {
   "scripts": {
     "dev": "node server.js",
-    "fmt": "prettier --write src/**/*.js",
-    "fmt-check": "prettier src/**/*.js"
+    "lint": "eslint --fix src/**/*.js",
+    "prettier": "prettier --write src/**/*.{js,json,md,html}",
+    "prettier:check": "prettier --list-different src/**/*.{js,json,md,html}",
+    "fmt": "yarn lint && yarn prettier"
   },
   "prettier": {
     "singleQuote": true,
@@ -37,9 +39,20 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "8.0.0-beta.0",
+    "eslint": "5.6.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.12.0",
+    "eslint-plugin-standard": "^4.0.0",
     "express": "^4.13.3",
-    "prettier": "1.11.1",
+    "prettier": "^1.15.3",
     "webpack": "^3.8.1",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-hot-middleware": "^2.19.1"

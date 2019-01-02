@@ -1,10 +1,17 @@
 # redux-saga-login-sample
 
-Login sample using  Redux-Saga.
+Login sample using Redux-Saga.
 
-## Development
+## Usage
+
+Start app development
 
 ```bash
-yarn run dev
+yarn dev
 ```
 
+Lint check and code format
+
+```
+yarn fmt
+```

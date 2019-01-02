@@ -4,10 +4,6 @@ import { connect } from 'react-redux'
 import Dashboard from '../components/Dashboard'
 
 class Login extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     const { username } = this.props
     return (

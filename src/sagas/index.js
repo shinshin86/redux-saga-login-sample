@@ -6,16 +6,12 @@ import {
   FAILURE_LOGIN,
   successLogin
 } from '../actions'
-import fetch from 'isomorphic-fetch'
 import { login } from '../api/auth'
 import { push } from 'react-router-redux'
 
 export function* loginFlow() {
-  console.log('call login flow')
   while (true) {
     const action = yield take(REQUEST_LOGIN)
-    const { usernmae, password } = action.data
-
     const { token, username, err } = yield call(login, action.data)
 
     if (err) {
@@ -26,14 +22,13 @@ export function* loginFlow() {
 
     yield take(REQUEST_LOGOUT)
 
-    yield call(SUCCESS_LOGOUT)
+    // yield call(SUCCESS_LOGOUT)
   }
 }
 
 function* pageSaga() {
   while (true) {
     yield take(SUCCESS_LOGIN)
-    console.log('*** calll pagasaga ***')
 
     yield put(push('/dashboard'))
   }
