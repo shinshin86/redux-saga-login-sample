@@ -1,9 +1,12 @@
 import React from 'react'
 import Header from './Header'
-const Dashboard = ({ username }) => (
+import moment from 'moment'
+
+const Dashboard = ({ username, loggedTime }) => (
   <div>
     <Header />
-    Hello! {username}
+    <p>Hello! {username}</p>
+    <p>Logged Time: {moment(loggedTime).format('YYYY/MM/DD hh:mm:ss')}</p>
   </div>
 )
 
