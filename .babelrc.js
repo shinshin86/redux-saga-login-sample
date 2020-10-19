@@ -13,10 +13,10 @@ module.exports = {
         forceAllTransforms: true,
       },
     ],
-    '@babel/react'
+    '@babel/react',
   ],
   plugins: [
     cjs && '@babel/transform-modules-commonjs',
-    '@babel/plugin-proposal-class-properties'
+    '@babel/plugin-proposal-class-properties',
   ].filter(Boolean),
 }

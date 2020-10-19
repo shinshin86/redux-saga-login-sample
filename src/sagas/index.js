@@ -4,7 +4,7 @@ import {
   REQUEST_LOGOUT,
   SUCCESS_LOGIN,
   FAILURE_LOGIN,
-  successLogin
+  successLogin,
 } from '../actions'
 import { login } from '../api/auth'
 import { push } from 'react-router-redux'

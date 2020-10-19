@@ -6,41 +6,41 @@ import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import { requestLogin } from '../actions'
 
-const styles = theme => ({
+const styles = (theme) => ({
   container: {
     display: 'flex',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 200
-  }
+    width: 200,
+  },
 })
 
 class Login extends Component {
   state = {
     auth: {
       username: '',
-      password: ''
-    }
+      password: '',
+    },
   }
 
-  handleUsernameChange = username => event => {
+  handleUsernameChange = (username) => (event) => {
     this.setState({
       auth: {
         username: event.target.value,
-        password: this.state.auth.password
-      }
+        password: this.state.auth.password,
+      },
     })
   }
 
-  handlePasswordChange = password => event => {
+  handlePasswordChange = (password) => (event) => {
     this.setState({
       auth: {
         username: this.state.auth.username,
-        password: event.target.value
-      }
+        password: event.target.value,
+      },
     })
   }
 
@@ -94,7 +94,7 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  dispatch: PropTypes.func.isRequired
+  dispatch: PropTypes.func.isRequired,
 }
 
 function mapStateToProps(state) {
@@ -102,7 +102,7 @@ function mapStateToProps(state) {
   const loggedIn = !!token
 
   return {
-    loggedIn
+    loggedIn,
   }
 }
 

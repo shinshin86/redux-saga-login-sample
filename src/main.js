@@ -1,4 +1,4 @@
-import "@babel/polyfill"
+import '@babel/polyfill'
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
@@ -6,16 +6,13 @@ import App from './components/App'
 import Dashboard from './containers/Dashboard'
 import Auth from './containers/Auth'
 import configureStore from './store'
-import { Route, Switch } from 'react-router-dom'
-import { ConnectedRouter } from 'react-router-redux'
-import createHistory from 'history/createBrowserHistory'
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 
-
-const {store, history} = configureStore()
+const { store } = configureStore()
 
 render(
   <Provider store={store}>
-    <ConnectedRouter  store={store} history={history} >
+    <Router>
       <div>
         <Switch>
           <Route exact path="/" component={App} />
@@ -26,8 +23,7 @@ render(
           </Auth>
         </Switch>
       </div>
-    </ConnectedRouter>
+    </Router>
   </Provider>,
   document.getElementById('root')
 )
-

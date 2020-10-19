@@ -5,7 +5,7 @@ function mapStateToProps(state) {
   const { username, loggedTime } = state.login
   return {
     username,
-    loggedTime
+    loggedTime,
   }
 }
 

@@ -2,9 +2,9 @@ export const login = ({ username, password }) => {
   // auth test
   // username: testuser
   // password: password
-  let res = {
+  const res = {
     token: '',
-    err: ''
+    err: '',
   }
   if (username === 'testuser' && password === 'password') {
     res.token = 'token'
