@@ -2,14 +2,14 @@ import {
   REQUEST_LOGIN,
   REQUEST_LOGOUT,
   SUCCESS_LOGIN,
-  FAILURE_LOGIN
+  FAILURE_LOGIN,
 } from '../actions'
 
 const initial = {
   data: {
     loggedIn: false,
-    loggedTime: 0
-  }
+    loggedTime: 0,
+  },
 }
 
 export default function login(state = initial.data, action) {
@@ -19,7 +19,7 @@ export default function login(state = initial.data, action) {
     case REQUEST_LOGOUT:
       return {
         ...state,
-        loggedIn: false
+        loggedIn: false,
       }
     case SUCCESS_LOGIN:
       return {
@@ -27,12 +27,12 @@ export default function login(state = initial.data, action) {
         loggedIn: true,
         loggedTime: action.loginAt,
         token: action.token,
-        username: action.username
+        username: action.username,
       }
     case FAILURE_LOGIN:
       return {
         ...state,
-        loggedIn: false
+        loggedIn: false,
       }
     default:
       return state

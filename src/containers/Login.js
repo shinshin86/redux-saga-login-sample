@@ -3,44 +3,44 @@ import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import Grid from '@material-ui/core/Grid'
+import Box from '@material-ui/core/Box'
 import { requestLogin } from '../actions'
 
-const styles = theme => ({
+const styles = (theme) => ({
   container: {
     display: 'flex',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 200
-  }
+    width: 200,
+  },
 })
 
 class Login extends Component {
   state = {
     auth: {
       username: '',
-      password: ''
-    }
+      password: '',
+    },
   }
 
-  handleUsernameChange = username => event => {
+  handleUsernameChange = (username) => (event) => {
     this.setState({
       auth: {
         username: event.target.value,
-        password: this.state.auth.password
-      }
+        password: this.state.auth.password,
+      },
     })
   }
 
-  handlePasswordChange = password => event => {
+  handlePasswordChange = (password) => (event) => {
     this.setState({
       auth: {
         username: this.state.auth.username,
-        password: event.target.value
-      }
+        password: event.target.value,
+      },
     })
   }
 
@@ -56,8 +56,8 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <Grid container spacing={24}>
-          <Grid item xs={12}>
+        <Box textAlign="center">
+          <Box>
             <TextField
               id="username"
               label="Username"
@@ -66,8 +66,8 @@ class Login extends Component {
               onChange={this.handleUsernameChange('username')}
               margin="normal"
             />
-          </Grid>
-          <Grid item xs={12}>
+          </Box>
+          <Box>
             <TextField
               type="password"
               id="password"
@@ -77,8 +77,8 @@ class Login extends Component {
               onChange={this.handlePasswordChange('password')}
               margin="normal"
             />
-          </Grid>
-          <Grid item xs={12}>
+          </Box>
+          <Box mt={1}>
             <Button
               variant="contained"
               color="primary"
@@ -86,15 +86,15 @@ class Login extends Component {
             >
               LOGIN
             </Button>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       </div>
     )
   }
 }
 
 Login.propTypes = {
-  dispatch: PropTypes.func.isRequired
+  dispatch: PropTypes.func.isRequired,
 }
 
 function mapStateToProps(state) {
@@ -102,7 +102,7 @@ function mapStateToProps(state) {
   const loggedIn = !!token
 
   return {
-    loggedIn
+    loggedIn,
   }
 }
 

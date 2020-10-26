@@ -4,7 +4,7 @@ import { routerReducer } from 'react-router-redux'
 
 const rootReducer = combineReducers({
   login,
-  router: routerReducer
+  router: routerReducer,
 })
 
 export default rootReducer

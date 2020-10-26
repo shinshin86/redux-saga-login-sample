@@ -6,8 +6,8 @@ const Auth = ({ loggedIn, children }) => {
   return loggedIn ? <Route>{children}</Route> : <Redirect to="/" />
 }
 
-const mapStateToProps = state => ({
-  loggedIn: state.login.loggedIn
+const mapStateToProps = (state) => ({
+  loggedIn: state.login.loggedIn,
 })
 
 export default withRouter(connect(mapStateToProps)(Auth))

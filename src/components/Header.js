@@ -7,8 +7,8 @@ import Typography from '@material-ui/core/Typography'
 
 const styles = {
   root: {
-    flexGrow: 1
-  }
+    flexGrow: 1,
+  },
 }
 
 function Header(props) {
@@ -27,7 +27,7 @@ function Header(props) {
 }
 
 Header.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 }
 
 export default withStyles(styles)(Header)
