@@ -11,7 +11,7 @@ const styles = {
   },
 }
 
-function Header(props) {
+const Header = (props) => {
   const { classes } = props
   return (
     <div className={classes.root}>

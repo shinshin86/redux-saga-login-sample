@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import Dashboard from '../components/Dashboard'
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   const { username, loggedTime } = state.login
   return {
     username,
