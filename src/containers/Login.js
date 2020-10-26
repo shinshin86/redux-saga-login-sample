@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import Grid from '@material-ui/core/Grid'
+import Box from '@material-ui/core/Box'
 import { requestLogin } from '../actions'
 
 const styles = (theme) => ({
@@ -56,8 +56,8 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <Grid container spacing={24}>
-          <Grid item xs={12}>
+        <Box textAlign="center">
+          <Box>
             <TextField
               id="username"
               label="Username"
@@ -66,8 +66,8 @@ class Login extends Component {
               onChange={this.handleUsernameChange('username')}
               margin="normal"
             />
-          </Grid>
-          <Grid item xs={12}>
+          </Box>
+          <Box>
             <TextField
               type="password"
               id="password"
@@ -77,8 +77,8 @@ class Login extends Component {
               onChange={this.handlePasswordChange('password')}
               margin="normal"
             />
-          </Grid>
-          <Grid item xs={12}>
+          </Box>
+          <Box mt={1}>
             <Button
               variant="contained"
               color="primary"
@@ -86,8 +86,8 @@ class Login extends Component {
             >
               LOGIN
             </Button>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       </div>
     )
   }
