@@ -30,7 +30,7 @@ function* pageSaga() {
   while (true) {
     yield take(SUCCESS_LOGIN)
 
-    yield call(history.push,'/dashboard')
+    yield call(history.push, '/dashboard')
   }
 }
 

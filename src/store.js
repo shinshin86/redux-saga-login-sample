@@ -12,6 +12,6 @@ export default function configureStore() {
     applyMiddleware(sagaMiddleware, createLogger())
   )
 
-  sagaMiddleware.run(rootSaga, { history})
+  sagaMiddleware.run(rootSaga, { history })
   return { store }
 }
