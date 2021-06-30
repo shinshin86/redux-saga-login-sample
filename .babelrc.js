@@ -8,7 +8,6 @@ module.exports = {
     [
       '@babel/env',
       {
-        loose: true,
         modules: false,
         forceAllTransforms: true,
       },

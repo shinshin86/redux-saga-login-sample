@@ -7,7 +7,7 @@ import {
   successLogin,
 } from '../actions'
 import { login } from '../api/auth'
-import { push } from 'react-router-redux'
+import history from '../history'
 
 export function* loginFlow() {
   while (true) {
@@ -30,7 +30,7 @@ function* pageSaga() {
   while (true) {
     yield take(SUCCESS_LOGIN)
 
-    yield put(push('/dashboard'))
+    yield call(history.push,'/dashboard')
   }
 }
 

@@ -6,13 +6,14 @@ import App from './components/App'
 import Dashboard from './containers/Dashboard'
 import Auth from './containers/Auth'
 import configureStore from './store'
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
+import { Route, Switch, Router } from 'react-router-dom'
+import history from './history'
 
 const { store } = configureStore()
 
 render(
   <Provider store={store}>
-    <Router>
+    <Router history={history}>
       <div>
         <Switch>
           <Route exact path="/" component={App} />
