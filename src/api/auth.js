@@ -1,21 +1,28 @@
-export const login = ({ username, password }) => {
+const sleep = (msec) => new Promise((resolve) => setTimeout(resolve, msec))
+
+export const login = async ({ username, password }) => {
+  // API access
+  await sleep(3000)
+
   // auth test
   // username: testuser
   // password: password
-  const res = {
-    token: '',
-    err: '',
-  }
   if (username === 'testuser' && password === 'password') {
-    res.token = 'token'
-    res.username = 'testuser'
+    return {
+      token: 'token',
+      username,
+    }
   } else {
-    res.err = 'auth error'
+    return {
+      err: 'auth error',
+    }
   }
-  return res
 }
 
-export const logout = ({ username, loggedTime }) => {
+export const logout = async ({ username, loggedTime }) => {
+  // API access
+  await sleep(1000)
+
   if (username === 'testuser') {
     console.log('loggedTime:', loggedTime)
 
