@@ -1,7 +1,11 @@
 const path = require('path')
 const webpack = require('webpack')
 
+const mode =
+  process.env.NODE_ENV === 'production' ? 'production' : 'development'
+
 module.exports = {
+  mode,
   devtool: 'eval-cheap-module-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
