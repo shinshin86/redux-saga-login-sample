@@ -4,9 +4,11 @@ import {
   REQUEST_LOGOUT,
   SUCCESS_LOGIN,
   FAILURE_LOGIN,
+  FAILURE_LOGOUT,
   successLogin,
+  successLogout,
 } from '../actions'
-import { login } from '../api/auth'
+import { login, logout } from '../api/auth'
 import history from '../history'
 
 export function* loginFlow() {
@@ -19,10 +21,19 @@ export function* loginFlow() {
       continue
     }
     yield put(successLogin(token, username))
+  }
+}
 
-    yield take(REQUEST_LOGOUT)
+export function* logoutFlow() {
+  while (true) {
+    const action = yield take(REQUEST_LOGOUT)
+    const { logoutAt, err } = yield call(logout, action.data)
 
-    // yield call(SUCCESS_LOGOUT)
+    if (err) {
+      yield put({ type: FAILURE_LOGOUT, payload: err })
+      continue
+    }
+    yield put(successLogout(logoutAt))
   }
 }
 
@@ -37,4 +48,5 @@ function* pageSaga() {
 export default function* root() {
   yield fork(loginFlow)
   yield fork(pageSaga)
+  yield fork(logoutFlow)
 }

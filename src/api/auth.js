@@ -14,3 +14,13 @@ export const login = ({ username, password }) => {
   }
   return res
 }
+
+export const logout = ({ username, loggedTime }) => {
+  if (username === 'testuser') {
+    console.log('loggedTime:', loggedTime)
+
+    return { logoutAt: Date.now(), err: '' }
+  } else {
+    return { logoutAt: '', err: 'logout error' }
+  }
+}
