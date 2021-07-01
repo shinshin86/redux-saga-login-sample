@@ -1,13 +1,7 @@
 import { connect } from 'react-redux'
 import Login from '../components/Login'
+import { requestLogin } from '../actions'
 
-const mapStateToProps = (state) => {
-  const { token } = state.login
-  const loggedIn = !!token
-
-  return {
-    loggedIn,
-  }
-}
-
-export default connect(mapStateToProps)(Login)
+export default connect((state) => state, {
+  requestLogin,
+})(Login)
