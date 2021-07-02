@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-import Box from '@material-ui/core/Box'
+import { TextField, Button, Box, CircularProgress } from '@material-ui/core'
 
 const styles = (theme) => ({
   container: {
@@ -15,9 +13,16 @@ const styles = (theme) => ({
   },
 })
 
-const Login = ({ requestLogin }) => {
+const Login = ({ loading, requestLogin }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+
+  if (loading)
+    return (
+      <Box textAlign="center" mt={3}>
+        <CircularProgress />
+      </Box>
+    )
 
   return (
     <div>

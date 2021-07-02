@@ -11,15 +11,22 @@ const initial = {
   data: {
     loggedIn: false,
     loggedTime: 0,
+    loading: false,
   },
 }
 
 export default function login(state = initial.data, action) {
   switch (action.type) {
     case REQUEST_LOGIN:
-      return state
+      return {
+        ...state,
+        loading: true,
+      }
     case REQUEST_LOGOUT:
-      return state
+      return {
+        ...state,
+        loading: true,
+      }
     case SUCCESS_LOGIN:
       return {
         ...state,
@@ -27,11 +34,13 @@ export default function login(state = initial.data, action) {
         loggedTime: action.loginAt,
         token: action.token,
         username: action.username,
+        loading: false,
       }
     case FAILURE_LOGIN:
       return {
         ...state,
         loggedIn: false,
+        loading: false,
       }
     case SUCCESS_LOGOUT:
       return {
@@ -40,11 +49,13 @@ export default function login(state = initial.data, action) {
         loggedTime: 0,
         token: '',
         username: '',
+        loading: false,
       }
     case FAILURE_LOGOUT:
       return {
         ...state,
         loggedIn: false,
+        loading: false,
       }
     default:
       return state
