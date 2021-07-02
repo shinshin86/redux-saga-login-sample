@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './Header'
 import moment from 'moment'
-import { Box, CircularProgress } from '@material-ui/core'
+import { Box, Button, CircularProgress } from '@material-ui/core'
 
 const Dashboard = ({ username, loggedTime, loading, requestLogout }) => {
   if (loading)
@@ -17,11 +17,17 @@ const Dashboard = ({ username, loggedTime, loading, requestLogout }) => {
   return (
     <div>
       <Header />
-      <p>Hello! {username}</p>
-      <p>Logged Time: {moment(loggedTime).format('YYYY/MM/DD hh:mm:ss')}</p>
-      <button onClick={() => requestLogout({ username, loggedTime })}>
-        Logout
-      </button>
+      <Box textAlign="center">
+        <p>Hello! {username}</p>
+        <p>Logged Time: {moment(loggedTime).format('YYYY/MM/DD hh:mm:ss')}</p>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => requestLogout({ username, loggedTime })}
+        >
+          LOGOUT
+        </Button>
+      </Box>
     </div>
   )
 }
