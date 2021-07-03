@@ -4,7 +4,13 @@ Login sample using Redux-Saga.
 
 ## Usage
 
-Start app development
+Install packages
+
+```bash
+yarn install
+```
+
+Start app (Development server)
 
 ```bash
 yarn dev
@@ -12,6 +18,6 @@ yarn dev
 
 Lint check and code format
 
-```
+```bash
 yarn fmt
 ```
