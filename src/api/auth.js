@@ -22,12 +22,12 @@ export const login = async ({ username, password }) => {
   }
 }
 
-export const logout = async ({ username, loggedTime }) => {
+export const logout = async ({ username, loginAt }) => {
   // API access
   await sleep(1000)
 
   if (username === 'testuser') {
-    console.log('loggedTime:', loggedTime)
+    console.log('loginAt:', loginAt)
 
     return { data: { logoutAt: Date.now() } }
   } else {

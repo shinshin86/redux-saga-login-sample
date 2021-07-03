@@ -10,7 +10,7 @@ import {
 const initial = {
   data: {
     loggedIn: false,
-    loggedTime: 0,
+    loginAt: 0,
     loading: false,
   },
 }
@@ -32,7 +32,7 @@ export default function login(state = initial.data, action) {
         ...state,
         loggedIn: true,
         loading: false,
-        loggedTime: action.data.loggedTime,
+        loginAt: action.data.loginAt,
         token: action.data.token,
         username: action.data.username,
       }
@@ -48,7 +48,6 @@ export default function login(state = initial.data, action) {
         ...state,
         loggedIn: false,
         loading: false,
-        loggedTime: 0,
         token: '',
         username: '',
         logoutAt: action.data.logoutAt,
