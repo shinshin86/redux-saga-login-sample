@@ -12,6 +12,7 @@ const initial = {
     loggedIn: false,
     loginAt: 0,
     loading: false,
+    error: '',
   },
 }
 
@@ -35,6 +36,7 @@ export default function login(state = initial.data, action) {
         loginAt: action.data.loginAt,
         token: action.data.token,
         username: action.data.username,
+        error: '',
       }
     case FAILURE_LOGIN:
       return {
@@ -51,6 +53,7 @@ export default function login(state = initial.data, action) {
         token: '',
         username: '',
         logoutAt: action.data.logoutAt,
+        error: '',
       }
     case FAILURE_LOGOUT:
       return {
