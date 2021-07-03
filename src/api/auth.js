@@ -9,12 +9,15 @@ export const login = async ({ username, password }) => {
   // password: password
   if (username === 'testuser' && password === 'password') {
     return {
-      token: 'token',
-      username,
+      data: {
+        token: 'token',
+        username,
+        loginAt: Date.now(),
+      },
     }
   } else {
     return {
-      err: 'auth error',
+      error: 'auth error',
     }
   }
 }
@@ -26,8 +29,8 @@ export const logout = async ({ username, loggedTime }) => {
   if (username === 'testuser') {
     console.log('loggedTime:', loggedTime)
 
-    return { logoutAt: Date.now(), err: '' }
+    return { data: { logoutAt: Date.now() } }
   } else {
-    return { logoutAt: '', err: 'logout error' }
+    return { error: 'logout error' }
   }
 }

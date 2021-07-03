@@ -12,6 +12,20 @@ export function requestLogin(data) {
   }
 }
 
+export function successLogin(data) {
+  return {
+    type: SUCCESS_LOGIN,
+    data,
+  }
+}
+
+export function failureLogin(error) {
+  return {
+    type: FAILURE_LOGIN,
+    error,
+  }
+}
+
 export function requestLogout(data) {
   return {
     type: REQUEST_LOGOUT,
@@ -19,24 +33,16 @@ export function requestLogout(data) {
   }
 }
 
-export function successLogout(logoutAt) {
+export function successLogout(data) {
   return {
     type: SUCCESS_LOGOUT,
-    logoutAt,
+    data,
   }
 }
 
-export function successLogin(token, username) {
+export function failureLogout(error) {
   return {
-    type: SUCCESS_LOGIN,
-    token,
-    username,
-    loginAt: Date.now(),
-  }
-}
-
-export function failureLogin() {
-  return {
-    type: FAILURE_LOGIN,
+    type: FAILURE_LOGOUT,
+    error,
   }
 }

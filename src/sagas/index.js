@@ -3,37 +3,26 @@ import {
   REQUEST_LOGIN,
   REQUEST_LOGOUT,
   SUCCESS_LOGIN,
-  FAILURE_LOGIN,
-  FAILURE_LOGOUT,
   successLogin,
   successLogout,
+  failureLogin,
+  failureLogout,
 } from '../actions'
 import { login, logout } from '../api/auth'
 import history from '../history'
 
-export function* loginFlow() {
+function* loginFlow() {
+  yield fork(pageSaga)
+
   while (true) {
     const action = yield take(REQUEST_LOGIN)
-    const { token, username, err } = yield call(login, action.data)
+    const { data, error } = yield call(login, action.data)
 
-    if (err) {
-      yield put({ type: FAILURE_LOGIN, payload: err })
-      continue
+    if (data && !error) {
+      yield put(successLogin(data))
+    } else {
+      yield put(failureLogin(error))
     }
-    yield put(successLogin(token, username))
-  }
-}
-
-export function* logoutFlow() {
-  while (true) {
-    const action = yield take(REQUEST_LOGOUT)
-    const { logoutAt, err } = yield call(logout, action.data)
-
-    if (err) {
-      yield put({ type: FAILURE_LOGOUT, payload: err })
-      continue
-    }
-    yield put(successLogout(logoutAt))
   }
 }
 
@@ -45,8 +34,20 @@ function* pageSaga() {
   }
 }
 
-export default function* root() {
+function* logoutFlow() {
+  while (true) {
+    const action = yield take(REQUEST_LOGOUT)
+    const { data, error } = yield call(logout, action.data)
+
+    if (data && !error) {
+      yield put(successLogout(data))
+    } else {
+      yield put(failureLogout(error))
+    }
+  }
+}
+
+export default function* rootSaga() {
   yield fork(loginFlow)
-  yield fork(pageSaga)
   yield fork(logoutFlow)
 }
