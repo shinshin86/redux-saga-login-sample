@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import { createTheme, ThemeProvider } from '@material-ui/core/styles'
 
 const styles = {
   root: {
@@ -12,7 +12,7 @@ const styles = {
   },
 }
 
-const theme = createMuiTheme({
+const theme = createTheme({
   typography: {
     h1: {
       fontSize: '2.4rem',
