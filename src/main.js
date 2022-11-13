@@ -1,6 +1,6 @@
 import '@babel/polyfill'
 import React from 'react'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import App from './components/App'
 import Dashboard from './containers/Dashboard'
@@ -11,7 +11,10 @@ import history from './history'
 
 const { store } = configureStore()
 
-render(
+const container = document.getElementById('root')
+const root = createRoot(container)
+
+root.render(
   <Provider store={store}>
     <Router history={history}>
       <div>
@@ -25,6 +28,5 @@ render(
         </Switch>
       </div>
     </Router>
-  </Provider>,
-  document.getElementById('root')
+  </Provider>
 )
